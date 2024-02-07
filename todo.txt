@@ -1,4 +1,4 @@
-database "created", ENV updated and npm installed
+database "created", ENV updated and npm installed, SEEDED
 
 MODELS
 
@@ -15,5 +15,5 @@ ROUTES
 api folder:
 category-routes
 product-routes
-tag-routes
+tag-routes - DONE.  Did this first.  The other two are more complicated.
 
