@@ -4,10 +4,10 @@ MODELS
 
 Index.js - DONE test a bunch in workbench.
 
-Category.js
-product.js
-ProductTag.js
-tag.js
+Category.js - DONE
+product.js - DONE
+tag.js - DONE
+ProductTag.js - DONE
 
 AFTER MODELS INSTALIZE, SEED AND GO LIVE
 

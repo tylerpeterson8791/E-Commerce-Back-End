@@ -23,7 +23,7 @@ Product.belongsToMany(Tag, {
 
 Tag.belongsToMany(Product, {
   through: {
-    model: PriceTag,
+    model: ProductTag,
     unique: false
   },
   as: 'teachers_assigned'
@@ -35,9 +35,3 @@ module.exports = {
   Tag,
   ProductTag,
 };
-
-
-// Products belongToMany Tags (through ProductTag) - DONE
-// Tags belongToMany Products (through ProductTag) - DONE
-// Products belongsTo Category - DONE
-// Categories have many Products - DONE
