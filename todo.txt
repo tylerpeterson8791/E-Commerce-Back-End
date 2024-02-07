@@ -1,0 +1,19 @@
+database "created", ENV updated and npm installed
+
+MODELS
+
+Index.js - DONE test a bunch in workbench.
+
+Category.js - DONE
+product.js - DONE
+tag.js - DONE
+ProductTag.js - DONE
+
+AFTER MODELS INSTALIZE, SEED AND GO LIVE
+
+ROUTES
+api folder:
+category-routes
+product-routes
+tag-routes
+
