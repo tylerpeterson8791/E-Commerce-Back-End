@@ -1,16 +1,33 @@
-// import models
 const Product = require('./Product');
 const Category = require('./Category');
 const Tag = require('./Tag');
 const ProductTag = require('./ProductTag');
 
-// Products belongsTo Category
+Product.belongsTo(Category, {
+  foreignKey: 'category_id',
+});
 
-// Categories have many Products
 
-// Products belongToMany Tags (through ProductTag)
+Category.hasMany(Product, {
+  foreignKey: 'category_id'
+});
 
-// Tags belongToMany Products (through ProductTag)
+
+Product.belongsToMany(Tag, {
+  through: {
+    model: ProductTag,
+    unique: false
+  },
+  as: 'students_taught'
+});
+
+Tag.belongsToMany(Product, {
+  through: {
+    model: PriceTag,
+    unique: false
+  },
+  as: 'teachers_assigned'
+});
 
 module.exports = {
   Product,
@@ -18,3 +35,9 @@ module.exports = {
   Tag,
   ProductTag,
 };
+
+
+// Products belongToMany Tags (through ProductTag) - DONE
+// Tags belongToMany Products (through ProductTag) - DONE
+// Products belongsTo Category - DONE
+// Categories have many Products - DONE
