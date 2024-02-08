@@ -15,5 +15,6 @@ ROUTES
 api folder:
 category-routes
 product-routes
-tag-routes - DONE.  Did this first.  The other two are more complicated.
+tag-routes - DONE.  Did this first.  
+The other two are more complicated.
 

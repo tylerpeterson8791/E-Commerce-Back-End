@@ -3,30 +3,54 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
 
-// get all products - THROWING ERROR - Figure out syntax for this and it's gravy.  Troubleshooting.
 router.get('/', async (req, res) => {
   try {
     const payload = await Product.findAll({
       include: [
-       Category,
-       Tag
+        {
+          model: Category,
+          foreignKey: "category_id",
+          attributes: ["category_name"],
+        },
+        {
+          model: Tag,
+          as: "products_tag",
+          attributes: ["tag_name"],
+        },
       ],
     });
+
     res.json(payload);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Server Error' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+
 // get one product
-router.get('/:id', (req, res) => {
-  // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+router.get('/:id', async (req, res) => {
+  const payload = await Product.findByPk(req.params.id,{
+    include:
+    [
+      {
+        model: Category,
+        foreignKey: "category_id",
+        attributes: ["category_name"],
+      },
+      {
+        model: Tag,
+        as: "products_tag",
+        attributes: ["tag_name"],
+      },
+    ],
+  })
+  res.json(payload);
 });
 
-// create new product
+// create new product - HERE'S WHERE I'M STUCK!!!!!!!!
 router.post('/', (req, res) => {
+  
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -102,8 +126,19 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
-  // delete one product by its `id` value
+router.delete('/:id', async (req, res) => {
+  try {
+    await Category.destroy(
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+    res.json({ status: "ok" })
+  } catch( err ){
+    res.status(500).json({ error: err.message })
+  }
 });
 
 module.exports = router;
