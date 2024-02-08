@@ -13,8 +13,7 @@ AFTER MODELS INSTALIZE, SEED AND GO LIVE
 
 ROUTES
 api folder:
-category-routes
-product-routes
-tag-routes - DONE.  Did this first.  
-The other two are more complicated.
+category-routes - DONE.
+product-routes - DONE.
+tag-routes - DONE.
 
