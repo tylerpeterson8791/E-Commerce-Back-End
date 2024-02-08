@@ -2,7 +2,6 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection');
 const Product = require('./Product');
-//check to see if this is necessary?^^^^The MODEL require should extend it but it made the text green when I added it.
 const Tag = require('./Tag');
 
 class ProductTag extends Model {}
